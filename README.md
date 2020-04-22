@@ -1,5 +1,112 @@
-### modular dchart package
+# modular dchart package
 
 This package is planned to eventually replace the existing dchart package
 it contains more discrete chart functions that are designed to be composed.
+
+##  Package dchart2 makes charts using the deck markup
+##  NameValue is a name,value pair
+##  ChartBox holds the essential data for making a chart
+
+##  ReadTSV reads tab separated values into a ChartBox
+	ReadTSV(r io.Reader) (ChartBox, error)
+
+##  ReadCSV reads CSV values into a ChartBox
+	ReadCSV(r io.Reader, csvcols string) (ChartBox, error)
+
+##  Bar makes a (column) bar chart
+	(c *ChartBox) Bar(deck *generate.Deck, size float64)
+
+##  ConditionalBar makes a bar chart with conditional coloring
+	(c *ChartBox) ConditionalBar(deck *generate.Deck, size float64, cmin, cmax float64, color string)
+
+##  WBar makes a word-based horizontal bar chart
+	(c *ChartBox) WBar(deck *generate.Deck, linespacing float64, showval, showpct bool)
+
+##  HBar makes a horizontal bar chart
+	(c *ChartBox) HBar(deck *generate.Deck, size, linespacing float64)
+
+##  ConditionalHBar makes a horizontal bar chart with conditional coloring
+	(c *ChartBox) ConditionalHBar(deck *generate.Deck, size, linespacing float64, cmin, cmax float64, color string)
+
+##  Line makes a line chart
+	(c *ChartBox) Line(deck *generate.Deck, size float64)
+
+##  ConditionalLine makes a line chart with conditional coloring
+	(c *ChartBox) ConditionalLine(deck *generate.Deck, size float64, cmin, cmax float64, color string)
+
+##  Scatter makes a scatter chart
+	(c *ChartBox) Scatter(deck *generate.Deck, size float64)
+
+##  ConditionalScatter makes a scatter chart
+	(c *ChartBox) ConditionalScatter(deck *generate.Deck, size float64, cmin, cmax float64, color string)
+
+##  Area makes a area chart
+	(c *ChartBox) Area(deck *generate.Deck)
+
+##  HDot makes a dotted horizontal bar chart
+	(c *ChartBox) HDot(deck *generate.Deck, size, linespacing float64)
+
+##  VDot makes a vertical dotted bar chart
+	(c *ChartBox) VDot(deck *generate.Deck, size float64, color string)
+
+##  PMap makes a proportional map
+	(c *ChartBox) PMap(deck *generate.Deck, pwidth, pmlen float64, showvalues, solid bool)
+
+##  Slope makes a slope chart
+	(c *ChartBox) Slope(deck *generate.Deck, linewidth float64)
+
+##  Donut makes donut and pie charts
+	(c *ChartBox) Donut(deck *generate.Deck, psize, pwidth float64, showval, solid bool)
+
+##  Radial makes a radial chart
+	(c *ChartBox) Radial(deck *generate.Deck, psize, pwidth float64, showspokes, showvalues bool)
+
+##  PGrid makes a proportional grid with the specified rows and columns
+	(c *ChartBox) PGrid(deck *generate.Deck, linespacing float64, rows, cols int, showvalues bool)
+
+##  YAxis makes the Y axis with optional grid lines
+	(c *ChartBox) YAxis(deck *generate.Deck, min, max, step float64, gridlines bool)
+
+##  XLabel makes the x axis labels
+	(c *ChartBox) XLabel(deck *generate.Deck, n int)
+
+##  XStaggerLabel makes staggered x axis labels
+	(c *ChartBox) XStaggerLabel(deck *generate.Deck, n int)
+
+##  XRotateLabel makes rotated x axis labels
+	(c *ChartBox) XRotateLabel(deck *generate.Deck, angle float64, n int)
+
+##  RegressionLine makes a regression line from a data set
+	(c *ChartBox) RegressionLine(deck *generate.Deck, size float64)
+
+##  Values places chart values
+	(c *ChartBox) Values(deck *generate.Deck, offset float64)
+
+##  CTitle makes a centered title
+	(c *ChartBox) CTitle(deck *generate.Deck, offset float64)
+
+##  Frame makes a filled frame with the specified opacity (0-100)
+	(c *ChartBox) Frame(deck *generate.Deck, opacity float64)
+
+##  Notes places notes
+	(c *ChartBox) Notes(deck *generate.Deck, position string)
+
+##  LineNote places a note with a horizontal line set at a value
+	(c *ChartBox) LineNote(deck *generate.Deck, v float64, s string, size float64)
+
+##  Grid makes a grid
+	(c *ChartBox) Grid(deck *generate.Deck, size, step float64)
+
+##  MapRange maps the range (low1, high1) to (low2, high2)
+	MapRange(value, low1, high1, low2, high2 float64) float64
+
+
+
+
+
+
+
+
+
+
 
